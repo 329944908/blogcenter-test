@@ -10,7 +10,8 @@
 </head>
 <body>
 	<?php if(isset($_SESSION['me']['name'])){ ?>
-	<h1>你好：<a href="index.php?c=UserCenter&a=userInfo&id=<?php echo $_SESSION['me']['id']?>"><?php echo $_SESSION['me']['name'] ?></a></h1><br>
+	<h1>你好：<a href="index.php?c=UserCenter&a=userInfo&id=<?php echo $_SESSION['me']['id']?>"><?php echo $_SESSION['me']['name'] ?></a>
+	<img src="<?php echo $_SESSION['me']['image']?>" width=50 height=30></h1>
 		<a href= "index.php?c=UserCenter&a=logout">注销</a>
 
 		<?php }else{ ?>
@@ -23,6 +24,9 @@
 			<td>id</td>
 			<td>content</td>
 			<td>user_name</td>
+			<td>image</td>
+			<td>classify</td>
+			<td>time</td>
 			<td>info</td>
 		</tr>
 		
@@ -31,6 +35,9 @@
 			<td><?php echo $value['id'];?></td>
 			<td><?php echo mb_substr($value['content'], 0, 19,'utf8');?></td>
 			<td><?php echo $value['user_name'];?></td>
+			<td><?php if($value['image'] !== '格式不正确') { ?><img src="<?php echo $value['image'];?>" width=100 height=auto> <?php } ?> </td>
+			<td><?php echo $value['classify_id']; ?></td>
+			<td><?php echo $value['createtime'] > 0 ? date("Y-m-d H:i:s",$value['createtime']) : "无"; ?></td>
 			<td><a href="index.php?c=Blog&a=getContentInfo&id=<?php echo $value['id'];?>">详情</a></td>
 		</tr>
 		<?php } ?>

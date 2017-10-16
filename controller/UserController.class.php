@@ -18,4 +18,14 @@
 			header('Refresh:3,Url=index.php?c=Blog&a=blogLists');
 			echo "修改成功，3秒后跳转";
 		}
+		function image(){
+			include "./view/user/image.html";
+		}
+		function doImage(){
+			include "./library/Upload.class.php";
+			$upload = new Upload();
+			$fileName = $upload->run('photo');
+			echo $fileName;
+			echo $upload->getSize();
+		}
 	}

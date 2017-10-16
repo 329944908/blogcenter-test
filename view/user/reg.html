@@ -5,9 +5,10 @@
 	<title>注册</title>
 </head>
 <body>
-	<form action="index.php?c=UserCenter&a=doReg" method="post">
+	<form action="index.php?c=UserCenter&a=doReg" method="post" enctype="multipart/form-data">
 		用户名：<input type="text" name="name"><br>
-		年 龄：<input type="text" name="age"><br>
+		头  像 :<input type="file" name="image"><br>
+		年 龄  :<input type="text" name="age"><br>
 		密  码：<input type="text" name="password"><br>
 		        <input type="submit" name="" value="注册">
 	</form>

@@ -5,8 +5,8 @@
 			$this ->mysqli = new mysqli("localhost","root","","stu");
 			$this->mysqli->query('set names utf8');
 		}
-		function addUser($name,$age,$password){
-			$sql = "insert into user(name,age,password) value('{$name}',{$age},'{$password}')";
+		function addUser($name,$age,$password,$image){
+			$sql = "insert into user(name,age,password,image) value('{$name}',{$age},'{$password}','{$image}')";
 			$res = $this ->mysqli ->query($sql);
 			return $res;
 		}
@@ -31,7 +31,6 @@
 			$res = $this->mysqli->query($sql);
 			$data = $res->fetch_all(MYSQL_ASSOC);
 			return isset($data[0])?$data[0]: 0;
-
 		}
 		function getUserInfoByName($name) {
 			$sql = "select * from user where name = '{$name}'";
