@@ -17,4 +17,14 @@
 			}
 			return $data;
 		}
+		public  function getListsName($classify_id) {
+			isset($classify_id) ? $classify_id : 7;
+			if ($classify_id !='请选择') {
+				$sql = "select * from classify where id = {$classify_id}";
+				$res = $this->mysqli->query($sql);
+				$data = $res->fetch_all(MYSQL_ASSOC);
+				return isset($data[0])?$data[0]: 0;
+				
+			}
+		}
 	}

@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
+	<?php if(!isset($_SESSION['me'])) { die("请登录"); } ?>
 	<h1>添加段子</h1>
 	<form  action="index.php?c=Blog&a=doAdd" method="post" enctype="multipart/form-data">
 		标题: <input type="text" name="title">
@@ -21,11 +22,6 @@
 			<option value="<?php echo $v['id']; ?>">--<?php echo $v['class']; ?></option>
 			<?php } ?>
 		<?php } ?>
-		<!-- <option value="1">--程序人生</option>
-		<option value="2">--欣赏</option>
-		<option disabled="true">学无止境</option>
-		<option>--心得笔记</option>
-		<option>--网站建设</option> -->
 		</select>
 		<br>
 		<input type="submit" name="">

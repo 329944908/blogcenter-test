@@ -29,6 +29,7 @@
 		function blogLists(){
 			$blogmodel = new BlogModel();
 			$usermodel = new UserModel();
+			$classify  = new ClassifyModel(); 
 			$p = isset($_GET['p'])?$_GET['p']:1;
 			$pageSize = 4;
 			$offset = ($p - 1) * $pageSize;
@@ -38,6 +39,8 @@
 			foreach ($data as $key => $value){
 				$user_info = $usermodel->getUserInfoById($value['user_id']);
 				$data[$key]['user_name'] = $user_info['name'];
+				$classify_info = $classify->getListsName($value['classify_id']);
+		    	$data[$key]['classify_name'] = $classify_info['class'];
 		    }
 			include "./view/blog/lists.html";
 		}
