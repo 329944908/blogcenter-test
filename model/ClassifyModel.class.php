@@ -27,4 +27,9 @@
 				
 			}
 		}
+		public function addClassify($className,$pid){
+			$sql = "insert into classify(class,pid) value('{$className}',$pid)";
+			$res = $this->mysqli->query($sql);
+			return $res;
+		}
 	}

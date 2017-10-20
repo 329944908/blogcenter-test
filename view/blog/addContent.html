@@ -8,14 +8,9 @@
 	<?php if(!isset($_SESSION['me'])) { die("请登录"); } ?>
 	<h1>添加段子</h1>
 	<form  action="index.php?c=Blog&a=doAdd" method="post" enctype="multipart/form-data">
-		标题: <input type="text" name="title">
-		<br>
-		图片： <input type="file" name="image"></br>
-	    内容： <textarea name="content" rows="20" cols="100"></textarea>
-		<br>
 		分类： 
-		<select name="classify">
-		<option>请选择</option>
+		<select name="classify" >
+		<option >请选择</option>
 		<?php foreach ($classify as $value) { ?>
 		<option disabled="true"><?php echo $value['class']; ?></option>
 			<?php foreach ($value['child'] as $v) { ?>
@@ -23,7 +18,13 @@
 			<?php } ?>
 		<?php } ?>
 		</select>
+		<button><a href="index.php?c=Classify&a=add">添加分类</a></button>
 		<br>
+		标题: <input type="text" name="title">
+		<br>
+		图片： <input type="file" name="image"></br>
+	    内容： <textarea name="content" rows="20" cols="100"></textarea>
+		<br>	
 		<input type="submit" name="">
 	</form>
 </body>

@@ -11,5 +11,10 @@
 			include "./view/classify/add.html";
 		}
 		public function doAdd() {
+			$className = $_POST['className'];
+			$pid  = $_POST['pid'];
+			$classifyModel = new ClassifyModel();
+			$classify = $classifyModel->addClassify($className,$pid);
+			header('Location:index.php?c=Blog&a=add');
 		}
 	}
